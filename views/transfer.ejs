@@ -1,0 +1,58 @@
+<%-include("Partials/header")-%>
+<div class=" ftco-section">
+  <div class="row wizard-v6-content">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card wizard-form">
+        <div class="card-header wizard-heading">
+          <h1>Money Transfer</h1>
+        </div>
+        <div class="card-body .wizard-for form-register ">
+          <form action="/customer" method="POST" class="needs-validation" novalidate>
+            <div class=" content mb-3 out">
+              <label class="input-group-text" for="form">From: </label>
+              <select class="form-select form-control" name="From" id="from">
+                <% for(let c of cus) { %>
+                <option style="text-transform: capitalize;" value="<%= c.username %>" <%=c.username===cs.username?'selected':'disabled' %>><%= c.username %>
+                </option> <!-- Terenary Operator added so that one cannot select other -->
+                <% } %>
+              </select>
+            </div>
+            <div class="content mb-3">
+              <label class="input-group-text" for="cati">Transfer to:</label>
+              <select class="form-select form-control" name="username" id="cati">
+                <% for(let c of cus) { %>
+                <option style="text-transform: capitalize;" value="<%= c.username %>" <%=c.username===cs.username?'disabled':'' %>><%= c.username %>
+                </option> <!-- Terenary Operator added so that one cannot select themselves -->
+                <% } %>
+              </select>
+            </div>
+            <div class="content mb-3">
+              <span class="input-group-text">Amount in Rs</span>
+              <input type="number" class="form-control" name="Amount" required min="0">
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Enter Amount
+              </div>
+            </div>
+            <div class="content mb-3 ">
+              <label class="input-group-text" for="com">Purpose</label>
+              <input type="text" class="form-control but" name="comment" id="com" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback ">
+                Please give a comment
+              </div>
+            </div>
+            <button class="btn btn-success  col-lg-12 ">Transfer</button>
+            <button class="btn btn-dark  col-lg-12 href=" /customer">Back to Home</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%-include("Partials/footer")-%>

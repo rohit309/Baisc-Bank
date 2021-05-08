@@ -1,0 +1,34 @@
+<%-include("Partials/header")-%>
+<div class="container ftco-section">
+  <div class="row wizard-v6-content">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card wizard-form">
+        <div class="card-header wizard-heading">
+          <h3 style="text-transform: capitalize;">
+            <%= t.username %> All transactions
+          </h3>
+        </div>
+        <ul class="list-group list-group-flush .wizard-for form-register out but">
+          <% if(t.transactions.length > 0) { %>
+          <% for(let c of t.transactions) {%>
+          <li class="list-group-item form-select form-control wizard-form inner" style="text-transform: capitalize;">
+            <%= c.Description %> <b>-----</b> <i><%= c.comment %></i> <b>----- <%= c.Date %></b>
+          </li>
+          <% } %>
+          <% } else { %>
+          <li class="list-group-item form-select form-control wizard-form inner" style="text-transform: capitalize;">
+            Sorry!!!! No transactions Yet........
+          </li>
+          <% } %>
+        </ul>
+        <div class="card-body">
+          <a class="btn btn-success" href="/customer/<%= t._id %>">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<%-include("Partials/footer")-%>

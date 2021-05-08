@@ -1,0 +1,66 @@
+<%-include("Partials/header")-%>
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Customer Details</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-wrap">
+          <table class="table table-responsive-xl">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>Profile Pic</th>
+                <th>Username</th>
+                <th>Balance</th>
+                <th>More</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let c of customer) {%>
+              <tr class="alert" role="alert">
+                <td></td>
+                <td>
+                  <label class="checkbox-wrap checkbox-primary">
+                    <img src="<%= c.avatar %>" class="img" alt="...">
+                    <span class="checkmark"></span>
+                  </label>
+                </td>
+                <!-- <td class="d-flex align-items-center">
+                  <div class="img" style="background-image: url(images/person_1.jpg);"></div>
+                  <div class="pl-3 email">
+                    <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82efe3f0e9edf6f6edc2e7efe3ebeeace1edef">[email&#160;protected]</a></span>
+                    <span>Added: 01/03/2020</span>
+                  </div>
+                </td> -->
+                <td><%= c.username %></td>
+                <td class="status">
+                  <p class="active"><%= c.Balance %></p>
+                </td>
+                <td class="status">
+                  <a class="btn btn-info btn-sm active" href="/customer/<%= c._id %>">Details..</a>
+                </td>
+                <td></td>
+              </tr>
+              <% } %>
+
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+<%-include("Partials/footer")-%>
